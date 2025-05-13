@@ -8,18 +8,22 @@ const Landing: React.FC = () => {
 
     const Topics = [
         {
+            id: 1,
             name: "Medicina",
             navigateTo: "/medicina"
         },
         {
+            id: 2,
             name: "Automehanika",
             navigateTo: "/automehanika"
         },
         {
+            id: 3,
             name: "Kulinarstvo",
             navigateTo: "/kulinarstvo"
         },
         {
+            id: 4,
             name: "Osobne usluge",
             navigateTo: "/usluge"
         }

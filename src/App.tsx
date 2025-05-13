@@ -10,6 +10,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import Test from './pages/Test';
+import TestResult from './pages/TestResult';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
         <Route path={'/prijava'} element={<Login />}></Route>
         <Route path={'/podrucja'} element={<Topics />}></Route>
         <Route path={'/test'} element={<Test />}></Route>
+        <Route path={'/testResult'} element={<TestResult />}></Route>
       </Routes>
     </Router>
   )

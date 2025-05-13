@@ -39,7 +39,7 @@ const Header: React.FC = () => {
                     </div>
                 ))}
                 <div className="w-1/5 flex justify-center items-center">
-                    <div onClick={() => navigate('/prijava')} className="cursor-pointer w-3/4 h-5/6 bg-orange-500 flex justify-center items-center border-2 rounded-4xl hover:bg-orange-600 transition-all duration-250"><p>Prijava</p></div>
+                    <div onClick={() => navigate('/prijava')} className="text-white font-semibold cursor-pointer w-3/4 h-5/6 bg-orange-500 flex justify-center items-center rounded-4xl hover:bg-orange-600 transition-all duration-250"><p>Prijava</p></div>
                 </div>
             </div>
         </div>
