@@ -8,7 +8,7 @@ interface Topic {
   id: number;
   name: string;
 }
-const baseURL = import.meta.env.REACT_APP_API_BASE_URL;
+// const baseURL = import.meta.env.REACT_APP_API_BASE_URL;
 
 const Landing: React.FC = () => {
     const navigate = useNavigate();
