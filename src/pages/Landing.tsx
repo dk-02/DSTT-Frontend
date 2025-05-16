@@ -20,7 +20,7 @@ const Landing: React.FC = () => {
     useEffect(() => {
         const fetchTopics = async () => {
             try {
-                const res = await axios.get(`${baseURL}/DST/topicList`);
+                const res = await axios.get(`https://dst-backend-m7vv.onrender.com/api/DST/topicList`);
                 setTopics(res.data.data);
             } catch (err) {
                 console.error("Failed to fetch topic list: ", err);
