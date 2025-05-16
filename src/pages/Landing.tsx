@@ -8,7 +8,7 @@ interface Topic {
   id: number;
   name: string;
 }
-// const baseURL = import.meta.env.REACT_APP_API_BASE_URL;
+const baseURL = import.meta.env.VITE_API_URL;
 
 const Landing: React.FC = () => {
     const navigate = useNavigate();
@@ -20,7 +20,7 @@ const Landing: React.FC = () => {
     useEffect(() => {
         const fetchTopics = async () => {
             try {
-                const res = await axios.get(`https://dst-backend-m7vv.onrender.com/api/DST/topicList`);
+                const res = await axios.get(`${baseURL}/DST/topicList`);
                 setTopics(res.data.data);
             } catch (err) {
                 console.error("Failed to fetch topic list: ", err);
