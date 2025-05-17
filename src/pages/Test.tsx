@@ -198,7 +198,7 @@ const Test: React.FC = () => {
                     <h2 className="text-white text-3xl font-bold">Potvrda</h2>
                     <p className="text-white text-lg text-center w-4/5">Postavljena je ispravna dijagnoza. Kako biste dobili detaljno izvješće o uspjehu na ovom scenariju, pritisnite "Završi".</p>
                     <div>
-                        <button className="bg-orange-500 px-4 py-2 rounded-lg text-white text-lg font-semibold hover:bg-orange-600" onClick={handleSubmit}>Završi</button>
+                        <button className="cursor-pointer bg-orange-500 px-4 py-2 rounded-lg text-white text-lg font-semibold hover:bg-orange-600" onClick={handleSubmit}>Završi</button>
                     </div>
                 </div>
             </div>}
