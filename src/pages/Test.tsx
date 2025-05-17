@@ -15,11 +15,6 @@ interface ParameterDTO {
     price: number;
 }
 
-// interface ResponseData {
-//     message: string;
-//     data: null;
-// }
-
 interface UsedParam {
     question: string;
     answer: string;
@@ -52,12 +47,10 @@ const Test: React.FC = () => {
         axios.get(`${baseURL}/DST/getTestData/${testId}`). 
             then((res) => {
                 const data = res.data.data;
-
-                // console.log(data)
-
                 setParameters(data.parameterDTO);
                 setPossibleDiagnoses(data.diagnoses);
                 setCorrectDiagnosisId(data.diagnosisDTO.id);
+
             }).catch((err) => {
                 console.error("Failed to fetch data: ", err);
             });
@@ -103,8 +96,6 @@ const Test: React.FC = () => {
     }
 
     const handleSubmit = async () => {
-        // console.log(answers)
-
         try {
             const response = await axios.post(`${baseURL}/DST/evaluateSolution`, {
                 requestedParameters: answers,
@@ -112,10 +103,10 @@ const Test: React.FC = () => {
             });
 
             const evalData = response.data;
-            // console.log("Rezultat evaluacije:", evalData);
 
             navigate('/testResult', {
                 state: {
+                    answers: answers,
                     testResults: evalData.data
                 }
             });
@@ -179,14 +170,14 @@ const Test: React.FC = () => {
                 <div className="w-1/3 h-[calc(100vh-4.5rem)] bg-gray-700 flex flex-col items-center gap-5 py-5 text-gray-200 overflow-y-scroll">
                     <h2 className="font-semibold text-2xl">Iskorišteni upiti</h2>
                     {usedParams.map((param, idx) => (
-                        <div key={idx} className="min-h-24 w-3/4 flex flex-col items-center bg-gray-800 rounded-3xl p-5 border-2 border-orange-500">
+                        <div key={idx} className="min-h-26 w-3/4 flex flex-col items-center bg-gray-800 rounded-3xl px-5 py-3 border-2 border-orange-500">
                             <p className="font-bold">{param.question}</p>
                             <p>{param.answer}</p>
                         </div>
                     ))}
                     <h2 className="font-semibold text-2xl">Pogrešne dijagnoze</h2>
                     {diagnosisAnswers.map((diag, idx) => (
-                        <div key={idx} className="min-h-24 w-3/4 flex flex-col items-center justify-center bg-gray-800 rounded-3xl p-5 border-2 border-orange-500">
+                        <div key={idx} className="min-h-26 w-3/4 flex flex-col items-center justify-center bg-gray-800 rounded-3xl px-5 py-3 border-2 border-orange-500">
                             <p className="font-bold">{diag.name}</p>
                         </div>
                     ))}
