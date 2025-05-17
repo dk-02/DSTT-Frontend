@@ -8,7 +8,7 @@ interface Topic {
   id: number;
   name: string;
 }
-const baseURL = import.meta.env.REACT_APP_API_BASE_URL;
+const baseURL = import.meta.env.VITE_API_URL;
 
 const Landing: React.FC = () => {
     const navigate = useNavigate();
@@ -34,35 +34,13 @@ const Landing: React.FC = () => {
 
     }, []);
 
-    // const Topics = [
-    //     {
-    //         id: 1,
-    //         name: "Medicina",
-    //         navigateTo: "/medicina"
-    //     },
-    //     {
-    //         id: 2,
-    //         name: "Automehanika",
-    //         navigateTo: "/automehanika"
-    //     },
-    //     {
-    //         id: 3,
-    //         name: "Kulinarstvo",
-    //         navigateTo: "/kulinarstvo"
-    //     },
-    //     {
-    //         id: 4,
-    //         name: "Osobne usluge",
-    //         navigateTo: "/usluge"
-    //     }
-    // ]
 
     return (
         <div className={"relative min-h-screen w-full bg-gray-800"}>
             <Header />
             <div className="h-[calc(100vh-4.5rem)] w-full flex flex-col justify-center p-10">
                 <div className="w-1/2">
-                    <p className="text-gray-200 text-5xl font-bold tracking-wide leading-18">Učite na temelju situacija s kojima se susreću <span className="text-orange-500">stručnjaci</span></p>
+                    <p data-aos="fade-right" className="text-gray-200 text-5xl font-bold tracking-wide leading-18">Učite na temelju situacija s kojima se susreću <span className="text-orange-500">stručnjaci</span></p>
                 </div>
             </div>
             <div id="podrucja" className="min-h-screen w-full flex flex-col items-center text-gray-200">
@@ -85,7 +63,12 @@ const Landing: React.FC = () => {
                                 <p>Ispitajte svoje dijagnostičke sposobnosti na slučaju iz stvarnog života.</p>
                             </div>
                             <div className="h-1/5 flex items-center">
-                                <button className="cursor-pointer bg-orange-500 px-10 py-3 rounded-3xl font-semibold text-lg hover:bg-orange-600 transition-all duration-250" onClick={() => navigate("/test")}>Kreni</button>
+                                <button className="cursor-pointer bg-orange-500 px-10 py-3 rounded-3xl font-semibold text-lg hover:bg-orange-600 transition-all duration-250" 
+                                    onClick={() => navigate("/test", {
+                                                            state: {
+                                                                testId: topic.id
+                                                            }
+                                })}>Kreni</button>
                             </div>
                         </div>
                     ))}
